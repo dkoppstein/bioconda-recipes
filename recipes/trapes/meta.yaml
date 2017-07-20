@@ -1,0 +1,42 @@
+package:
+  name: trapes
+  version: "0.1.0"
+
+source:
+  git_url: https://github.com/YosefLab/TRAPeS
+  git_rev: db8ef5264d154e21d532f7a230a124d4cb3ee8b3
+
+build:
+  number: 0
+  skip: True # [not py27]
+
+requirements:
+  build:
+    - python
+    - biopython
+    - pysam
+
+  run:
+    - python
+    - biopython
+    - pysam
+    - rsem
+    - bowtie2
+    - samtools
+
+test:
+  commands:
+    - trapes.py -h
+
+about:
+  home: https://github.com/YosefLab/TRAPeS
+  license: https://github.com/YosefLab/TRAPeS/blob/master/LICENSE
+  summary: >
+    TRAPeS (TCR Reconstruction Algorithm for Paired-End Single-cell),
+    a software for reconstruction of T cell receptors (TCR) using short,
+    paired-end single-cell RNA-sequencing.
+
+extra:
+  skip-lints:
+    - missing_hash
+    - uses_git_url
